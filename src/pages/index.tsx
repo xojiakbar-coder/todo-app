@@ -8,13 +8,13 @@ export default function Home() {
     <>
       <Head>
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-        <title>Home Page</title>
+        <title>Weloce to Todo App</title>
       </Head>
       <Navbar />
       <div className="w-full">
         <Main />
       </div>
-      <Link href="/todo">Go to Work Page</Link>
+      <Link href="/todos">Go to Todo Page</Link>
     </>
   );
 }
