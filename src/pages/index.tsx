@@ -14,7 +14,6 @@ export default function Home() {
       <div className="w-full">
         <Main />
       </div>
-      <Link href="/todos">Go to Todo Page</Link>
     </>
   );
 }

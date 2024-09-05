@@ -9,11 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        alata: `"Alata", sans-serif`,
+        ntr: `"Roboto Slab", serif`,
         mont: `"Montserrat", sans-serif`,
       },
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "custom-gradient": "linear-gradient(330deg, #F3CA52 20%, #FF7F3E 100%)",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
