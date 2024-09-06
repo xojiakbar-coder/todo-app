@@ -11,7 +11,7 @@ const Root = () => {
             <h1>{element}</h1>
           </div>
         ) : (
-          <Element />
+          <Element key={id} />
         );
       })}
     </div>

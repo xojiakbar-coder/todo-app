@@ -1,70 +1,86 @@
-import Drawer from "./Drawer";
+import Items from "./Items";
+import Link from "next/link";
 import Image from "next/image";
-import useThemeData from "@/hook/theme";
 import React, { useState } from "react";
+import { useThemeData } from "@/context/ThemeContext";
 import sunSvgIcon from "../../../public/assets/icons/sun.svg";
 import moonSvgIcon from "../../../public/assets/icons/moon.svg";
 import menuSvgIcon from "../../../public/assets/icons/menu.svg";
-import Link from "next/link";
+import closeSvgIcon from "../../../public/assets/icons/close.svg";
 
-const Navbar = () => {
-  const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
+const Navbar: React.FC = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const { theme, toggleTheme } = useThemeData();
+
   return (
-    <nav className="flex items-center justify-between w-full bg-[#151515] py-4 h-[90px] max-[90px] min-h-[90px] text-white backdrop-blur-[10px] px-[30px] shadow-md">
-      <div className="flex justify-between items-center w-full">
-        <Link href="/">
-          <div className="text-[28px] font-bold font-mont uppercase select-none cursor-pointer">
-            Todo App
-          </div>
-        </Link>
-        <div className="flex items-center gap-[21px]">
-          <ul className="hidden md:flex space-x-6">
-            <li>
-              <a
-                href="#home"
-                className="hover:underline font-ntr text-[18px] font-[400]"
+    <nav
+      className={`flex items-center sticky top-0 z-[999] justify-between w-full bg-[#13161b] py-4 min-h-[90px] text-white backdrop-blur-[10px] px-[30px] shadow-sm ${
+        theme === "dark" ? "shadow-gray-500" : "shadow-gray-950"
+      }`}
+    >
+      <div
+        className={`flex justify-between items-center w-full ${
+          isOpen ? "flex-col" : "flex-row"
+        }`}
+      >
+        <div
+          className={`flex justify-between items-center xl:w-max lg:w-max md:w-max w-full`}
+        >
+          <Link href="/">
+            <div className="text-[28px] font-bold font-mont uppercase select-none cursor-pointer">
+              Todo App
+            </div>
+          </Link>
+          <div>
+            {!isOpen && (
+              <button
+                className="xl:hidden lg:hidden md:hidden flex border-none select-none cursor-pointer"
+                onClick={() => setIsOpen(true)}
               >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="#about"
-                className="hover:underline font-ntr text-[18px] font-[400]"
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                href="#contact"
-                className="hover:underline font-ntr text-[18px] font-[400]"
-              >
-                Contact
-              </a>
-            </li>
-          </ul>
-          <button
-            onClick={toggleTheme}
-            className="lg:flex md:flex xl:flex justify-center items-center text-[24px] border-none bg-custom-gradient h-[40px] w-max px-3 rounded-lg cursor-pointer transition duration-[300ms] ease-in hidden select-none"
-          >
-            {theme === "light" ? (
-              <Image src={moonSvgIcon} alt="icon not found" />
-            ) : (
-              <Image src={sunSvgIcon} alt="icon not found" />
+                <Image src={menuSvgIcon} className="w-[30px]" alt="menu icon" />
+              </button>
             )}
-          </button>
-          <button
-            className="md:hidden border-none select-none cursor-pointer"
-            onClick={() => setIsDrawerOpen(true)}
+            {isOpen && (
+              <button
+                className="xl:hidden lg:hidden md:hidden flex border-none select-none cursor-pointer"
+                onClick={() => setIsOpen(false)}
+              >
+                <Image
+                  src={closeSvgIcon}
+                  className="w-[30px]"
+                  alt="menu icon"
+                />
+              </button>
+            )}
+          </div>
+        </div>
+        <div
+          className={`
+             flex items-center xl:w-max lg:w-max md:w-max ${
+               isOpen && "w-full"
+             }  ${!isOpen ? "flex-row" : "flex-col"}`}
+        >
+          <div
+            className={`${
+              !isOpen ? "xl:flex lg:flex md:flex hidden" : "flex flex-col"
+            } gap-[20px] ${isOpen && "w-full"} `}
           >
-            <Image src={menuSvgIcon} className="w-[30px]" alt="menu icon" />
-          </button>
+            <Items flexDir={!isOpen ? "row" : "col"} />
+            <div>
+              <button
+                onClick={toggleTheme}
+                className="flex justify-center items-center text-[24px] border-none bg-custom-gradient h-[40px] w-max px-3 rounded-lg cursor-pointer transition duration-[300ms] ease-in select-none"
+              >
+                {theme === "light" ? (
+                  <Image src={moonSvgIcon} alt="icon not found" />
+                ) : (
+                  <Image src={sunSvgIcon} alt="icon not found" />
+                )}
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-
-      <Drawer isOpen={isDrawerOpen} setIsOpen={setIsDrawerOpen} />
     </nav>
   );
 };

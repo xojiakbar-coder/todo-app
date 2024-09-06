@@ -3,7 +3,6 @@ import TodoPage from "@/components/Todos/page";
 
 const Todos = () => (
   <>
-    <Navbar />
     <TodoPage />
   </>
 );

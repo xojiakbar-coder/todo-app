@@ -13,6 +13,7 @@ const config: Config = {
         mont: `"Montserrat", sans-serif`,
       },
       backgroundImage: {
+        "custom-bg": "url('../../public/assets/images/pink-circle.png')",
         "custom-gradient": "linear-gradient(330deg, #F3CA52 20%, #FF7F3E 100%)",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",

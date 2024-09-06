@@ -10,7 +10,6 @@ export default function Home() {
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         <title>Weloce to Todo App</title>
       </Head>
-      <Navbar />
       <div className="w-full">
         <Main />
       </div>
