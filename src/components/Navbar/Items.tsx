@@ -21,7 +21,10 @@ const Items: React.FC<ParamType> = ({ flexDir }) => {
           >
             <a
               href={item.href}
-              className="font-ntr transition duration-[150ms] ease-in text-[18px] hover:bg-[#cddeff] hover:text-black flex items-center py-2 px-3 h-[40px] rounded-lg font-[400]"
+              className={`font-mont font-[500] transition duration-[150ms] ease-in text-[18px] hover:bg-[#cddeff] hover:text-black ${
+                flexDir === "col" &&
+                "h-[45px] shadow-sm shadow-[#545e70] border-[#cddeff]"
+              } flex items-center py-2 px-3 h-[40px] rounded-lg font-[400]`}
             >
               {item.title}
             </a>

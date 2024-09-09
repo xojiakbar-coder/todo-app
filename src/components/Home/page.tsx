@@ -31,10 +31,10 @@ const Home = () => {
     <div
       className={`flex justify-center items-start bg-custom-bg min-h-[100vh] bg-[length:130px_130px] bg-no-repeat w-[100%] bg-[left_top_18rem]`}
     >
-      <div className="flex items-center justify-between w-[90%] pt-[70px] xl:flex-row lg:flex-row md:flex-row flex-col gap-[40px]">
+      <div className="flex items-center justify-between w-full xl:px-[60px] lg:px-[60px] md:px-[60px] sm:px-[20px] px-[20px] xl:pt-[70px] lg:pt-[70px] md:pt-[70px] sm:pt-[50px] pt-[50px] xl:flex-row lg:flex-row md:flex-row flex-col gap-[40px]">
         <div className="self-start pt-[50px]">
           <h1
-            className={`relative z-[-1] font-semibold font-mont text-[40px] ${
+            className={`relative z-[-1] font-semibold font-mont text-[44px] ${
               theme === "dark" ? "text-white" : "text-black"
             }`}
           >
