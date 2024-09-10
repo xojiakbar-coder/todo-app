@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
   return (
     <>
       <nav
-        className={`flex items-center sticky top-0 z-[999] justify-between w-full bg-[#13161b] py-4 min-h-[90px] text-white backdrop-blur-[10px] xl:px-[60px] lg:px-[60px] md:px-[60px] sm:px-[20px] px-[20px] shadow-sm ${
+        className={`flex items-center sticky top-0 z-[999] justify-between w-full bg-[#13161b] py-4 min-h-[90px] text-white xl:px-[60px] lg:px-[60px] md:px-[60px] sm:px-[20px] px-[20px] shadow-sm ${
           theme === "dark" ? "shadow-gray-500" : "shadow-gray-950"
         }`}
       >

@@ -8,12 +8,12 @@ const navbarItems: NavbarItemType[] = [
   {
     id: 1,
     title: "Home",
-    href: "",
+    href: "/",
   },
   {
     id: 2,
     title: "Todos",
-    href: "",
+    href: "/todos",
   },
   {
     id: 3,

@@ -19,7 +19,7 @@ const Items: React.FC<ParamType> = ({ flexDir }) => {
             key={item.id}
             className={`${flexDir === "col" && "w-full"} list-none`}
           >
-            <a
+            <Link
               href={item.href}
               className={`font-mont font-[500] transition duration-[150ms] ease-in text-[18px] hover:bg-[#cddeff] hover:text-black ${
                 flexDir === "col" &&
@@ -27,7 +27,7 @@ const Items: React.FC<ParamType> = ({ flexDir }) => {
               } flex items-center py-2 px-3 h-[40px] rounded-lg font-[400]`}
             >
               {item.title}
-            </a>
+            </Link>
           </li>
         );
       })}
