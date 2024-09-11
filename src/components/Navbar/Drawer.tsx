@@ -16,11 +16,11 @@ const Drawer: React.FC = () => {
   };
 
   return (
-    <nav className="fixed top-0 z-[999] bg-gray-800 text-white p-4 w-full h-full flex flex-col">
+    <nav className="fixed top-[90px] z-[999] bg-gray-800 text-white p-4 w-full min-h-max h-max max-h-max flex flex-col">
       <Items flexDir="col" />
       <button
         onClick={handleClick}
-        className="flex justify-center items-center text-[24px] border-none bg-custom-gradient h-[40px] w-max px-3 rounded-lg cursor-pointer transition duration-[300ms] ease-in select-none mt-4"
+        className="flex justify-center items-center text-[24px] border-none bg-custom-gradient h-[40px] w-max px-3 rounded-lg cursor-pointer transition duration-[300ms] ease-in select-none mt-4 mb-2"
       >
         {theme === "light" ? (
           <Image src={moonSvgIcon} alt="moon icon" />
