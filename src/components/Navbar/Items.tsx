@@ -1,12 +1,21 @@
 import React from "react";
 import Link from "next/link";
 import navbarItems from "@/utils/navbar";
+import { useDrawer } from "@/context/DrawerContext";
 
 type ParamType = {
   flexDir: string;
 };
 
 const Items: React.FC<ParamType> = ({ flexDir }) => {
+  const { isDrawerOpen, toggleDrawer } = useDrawer();
+
+  const handleClick = () => {
+    if (flexDir === "col" && isDrawerOpen) {
+      toggleDrawer();
+    }
+  };
+
   return (
     <ul
       className={`flex items-center flex-${flexDir} ${
@@ -21,6 +30,7 @@ const Items: React.FC<ParamType> = ({ flexDir }) => {
           >
             <Link
               href={item.href}
+              onClick={handleClick}
               className={`font-mont font-[500] transition duration-[150ms] ease-in text-[18px] hover:bg-[#cddeff] hover:text-black ${
                 flexDir === "col" &&
                 "h-[45px] shadow-sm shadow-[#545e70] border-[#cddeff]"
